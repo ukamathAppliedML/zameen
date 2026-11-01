@@ -1,0 +1,3 @@
+# Qwen2.5-14B-Instruct, 3,000 examples. ~40 min on one A100 80 GB (bf16).
+model: qwen2.5-14b
+size: small

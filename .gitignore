@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+runs/
+# Adapters are large binaries: keep them out of git (publish to the Hugging Face Hub instead)
+models/**/adapter/*
+!models/**/adapter/.gitkeep
+*.safetensors
+*.bin
+*.pt
+.DS_Store
+
+# Corpus exports and downloads: Rekhta's full corpus is Rekhta's, never commit it.
+# (Root /data/ only: src/zameen/data/mini_corpus.jsonl is the public test fixture and stays.)
+/data/
+*.zip
+# Training state copied from Google Drive (Trainer checkpoints, optimizer state)
+trainer/

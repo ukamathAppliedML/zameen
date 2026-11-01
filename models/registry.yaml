@@ -1,0 +1,31 @@
+# Trained adapters. Fill hf_repo after publishing (scripts/push_to_hub.py).
+adapters:
+  - run: qwen2.5-14b-medium
+    recommended: true
+    base_model: Qwen/Qwen2.5-14B-Instruct
+    config: configs/qwen2.5-14b-medium.yaml
+    drive_path: null    # saved to the Colab disk (/content/ghazal_tuning/...), not Drive: re-create with zameen run
+    local_path: models/qwen2.5-14b-medium/adapter
+    hf_repo: null
+    results: results/qwen2.5-14b-medium
+  - run: qwen2.5-14b-small
+    base_model: Qwen/Qwen2.5-14B-Instruct
+    config: configs/qwen2.5-14b-small.yaml
+    drive_path: null    # saved to the Colab disk (/content/ghazal_tuning/...), not Drive: re-create with zameen run
+    local_path: models/qwen2.5-14b-small/adapter
+    hf_repo: null
+    results: results/qwen2.5-14b-small
+  - run: sarvam-30b-medium
+    base_model: sarvamai/sarvam-30b
+    config: configs/sarvam-30b-medium.yaml
+    drive_path: MyDrive/ghazal_tuning/sarvam-30b-medium/adapter
+    local_path: models/sarvam-30b-medium/adapter
+    hf_repo: null
+    results: results/sarvam-30b-medium
+  - run: sarvam-30b-small
+    base_model: sarvamai/sarvam-30b
+    config: configs/sarvam-30b-small.yaml
+    drive_path: MyDrive/ghazal_tuning/sarvam-30b-small/adapter
+    local_path: models/sarvam-30b-small/adapter
+    hf_repo: null
+    results: results/sarvam-30b-small

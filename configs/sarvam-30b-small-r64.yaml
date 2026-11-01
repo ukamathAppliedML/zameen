@@ -1,0 +1,6 @@
+# Next experiment: does a 4x larger adapter close Sarvam's gap to Qwen?
+# Same as sarvam-30b-small but LoRA rank 64 (~40M trainable parameters instead of ~10M).
+model: sarvam-30b
+size: small
+lora_r: 64
+run_name: sarvam-30b-small-r64

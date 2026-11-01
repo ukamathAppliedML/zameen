@@ -1,0 +1,40 @@
+# Every setting with its default. Copy what you need into your own config.
+model: qwen2.5-14b          # sarvam-30b | qwen2.5-7b | qwen2.5-14b | custom
+model_id: null              # Hugging Face id; required when model: custom
+size: small                 # small (3k) | medium (10k) | large (30k) | smoke
+run_name: null              # default: <model>-<size>
+
+# overrides of the size preset (null = preset value)
+n_train: null
+eval_poems: null            # poems per test split (null in 'large' = all)
+epochs: null
+probe_poems: null           # validation poems scored during training
+
+# training
+learning_rate: 0.0002
+lora_r: 16                  # lora_alpha is 2 * lora_r
+lora_dropout: 0.05
+warmup_frac: 0.03
+max_seq_len: 512
+probes_per_run: 8           # points on the validation curve
+gen_batch: null             # null = model default
+train_batch: null
+grad_accum: null
+quantization: auto          # auto (by GPU memory) | none (bf16) | 4bit
+
+# generation
+answer_tokens: 200
+think_mode: auto            # auto | prefill | allow (for reasoning models such as Sarvam)
+think_tokens: 768
+
+# data
+corpus: ""                  # "" = public Rekhta sample (downloaded once); or JSONL / Rekhta-style folder
+seed: 12345
+holdout_poets: [jigar-moradabadi, waseem-barelvi]
+test_frac: 0.15
+val_frac: 0.05
+lang_weights: {en: 0.4, nastaliq: 0.2, devanagari: 0.2, roman: 0.2}
+
+# where things go
+output_dir: runs
+cache_dir: ~/.cache/zameen

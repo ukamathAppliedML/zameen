@@ -1,0 +1,8 @@
+# Template for Rekhta's full export. Point `corpus` at a JSONL file, one poem per line:
+#   {"id": "...", "poet": "...", "form": "ghazal",
+#    "text": {"nastaliq": [lines], "devanagari": [lines], "roman": [lines]}}
+# Splits are hashed by poem id, so adding poems never moves existing ones between splits.
+model: qwen2.5-14b
+size: large            # 30,000 training examples; raise n_train to use more
+corpus: data/rekhta_export.jsonl
+run_name: qwen2.5-14b-rekhta-full

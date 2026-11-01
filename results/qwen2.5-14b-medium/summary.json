@@ -1,0 +1,533 @@
+{
+  "schema": 1,
+  "source": "colab notebook (f2147a43-ghazal_transliteration_a100__2___1_.ipynb)",
+  "environment": {
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_gb": 85,
+    "quantization": "none",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.21.0",
+    "peft": "0.21.2"
+  },
+  "preflight": {
+    "think_prefill": false
+  },
+  "training": {
+    "trainable_params": 68812800,
+    "train_examples": 10000,
+    "best_val_step": 624
+  },
+  "splits": {
+    "test_seen": {
+      "directions": {
+        "Devanagari → Nastaliq": {
+          "before": {
+            "CER": 0.265,
+            "CER loose": 0.254,
+            "WER": 0.461,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.071,
+            "n": 196.0
+          },
+          "after": {
+            "CER": 0.012,
+            "CER loose": 0.012,
+            "WER": 0.038,
+            "exact": 0.5770000000000001
+          }
+        },
+        "Devanagari → Roman": {
+          "before": {
+            "CER": 0.21100000000000002,
+            "CER loose": 0.08199999999999999,
+            "WER": 0.601,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 196.0
+          },
+          "after": {
+            "CER": 0.011000000000000001,
+            "CER loose": 0.005,
+            "WER": 0.042,
+            "exact": 0.531
+          }
+        },
+        "Nastaliq → Devanagari": {
+          "before": {
+            "CER": 0.327,
+            "CER loose": 0.301,
+            "WER": 0.626,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.153,
+            "n": 196.0
+          },
+          "after": {
+            "CER": 0.036000000000000004,
+            "CER loose": 0.031,
+            "WER": 0.111,
+            "exact": 0.27
+          }
+        },
+        "Nastaliq → Roman": {
+          "before": {
+            "CER": 0.324,
+            "CER loose": 0.18,
+            "WER": 0.794,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.048,
+            "CER loose": 0.034,
+            "WER": 0.14800000000000002,
+            "exact": 0.175
+          }
+        },
+        "Roman → Devanagari": {
+          "before": {
+            "CER": 0.08199999999999999,
+            "CER loose": 0.062,
+            "WER": 0.22399999999999998,
+            "exact": 0.051,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 196.0
+          },
+          "after": {
+            "CER": 0.005,
+            "CER loose": 0.005,
+            "WER": 0.019,
+            "exact": 0.76
+          }
+        },
+        "Roman → Nastaliq": {
+          "before": {
+            "CER": 0.262,
+            "CER loose": 0.255,
+            "WER": 0.47100000000000003,
+            "exact": 0.005,
+            "no answer": 0.0,
+            "wrong script": 0.02,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.013999999999999999,
+            "CER loose": 0.013000000000000001,
+            "WER": 0.042,
+            "exact": 0.575
+          }
+        },
+        "all directions": {
+          "before": {
+            "CER": 0.24600000000000002,
+            "CER loose": 0.18600000000000003,
+            "WER": 0.529,
+            "exact": 0.009000000000000001,
+            "no answer": 0.0,
+            "wrong script": 0.040999999999999995,
+            "n": 1184.0
+          },
+          "after": {
+            "CER": 0.021,
+            "CER loose": 0.017,
+            "WER": 0.066,
+            "exact": 0.48100000000000004
+          }
+        }
+      },
+      "phenomena": {
+        "Devanagari": {
+          "nukta (ज़ ख़ क़ फ़ ग़)": {
+            "before": 0.08199999999999999,
+            "after": 0.8220000000000001
+          },
+          "aspirates (ख घ थ ध फ भ …)": {
+            "before": 0.449,
+            "after": 0.9079999999999999
+          },
+          "nasalization (ँ ं)": {
+            "before": 0.521,
+            "after": 0.912
+          },
+          "conjuncts (्)": {
+            "before": 0.244,
+            "after": 0.823
+          },
+          "izafat (-ए- / -ओ-)": {
+            "before": 0.08900000000000001,
+            "after": 0.696
+          }
+        },
+        "Roman": {
+          "long vowels (ā ī ū)": {
+            "before": 0.047,
+            "after": 0.8809999999999999
+          },
+          "nasalization (ñ)": {
+            "before": 0.01,
+            "after": 0.888
+          },
+          "aspirates (kh gh th dh ph bh …)": {
+            "before": 0.24100000000000002,
+            "after": 0.884
+          },
+          "retroflex (T D R Ḍ Ṛ)": {
+            "before": 0.0,
+            "after": 0.8029999999999999
+          },
+          "Perso-Arabic sounds (ḳh ġ q z f)": {
+            "before": 0.10800000000000001,
+            "after": 0.784
+          },
+          "izafat (-e- / -o-)": {
+            "before": 0.035,
+            "after": 0.624
+          }
+        },
+        "Nastaliq": {
+          "aspirates (ھ)": {
+            "before": 0.521,
+            "after": 0.983
+          },
+          "noon ghunna (ں)": {
+            "before": 0.434,
+            "after": 0.958
+          },
+          "hamza / izafat (ء ئ ۂ ؤ)": {
+            "before": 0.26899999999999996,
+            "after": 0.898
+          },
+          "spelling choice (ث ذ ص ض ط ظ ع ح)": {
+            "before": 0.218,
+            "after": 0.8420000000000001
+          },
+          "bari ye (ے)": {
+            "before": 0.6609999999999999,
+            "after": 0.972
+          }
+        }
+      },
+      "form": {
+        "radif_kept": {
+          "before": 0.5670000000000001,
+          "after": 0.9670000000000001
+        },
+        "qafiya_kept": {
+          "before": 0.33,
+          "after": 0.807
+        }
+      }
+    },
+    "test_unseen": {
+      "directions": {
+        "Devanagari → Nastaliq": {
+          "before": {
+            "CER": 0.257,
+            "CER loose": 0.249,
+            "WER": 0.43799999999999994,
+            "exact": 0.01,
+            "no answer": 0.0,
+            "wrong script": 0.09,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.01,
+            "CER loose": 0.01,
+            "WER": 0.034,
+            "exact": 0.635
+          }
+        },
+        "Devanagari → Roman": {
+          "before": {
+            "CER": 0.217,
+            "CER loose": 0.08800000000000001,
+            "WER": 0.619,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.008,
+            "CER loose": 0.004,
+            "WER": 0.03,
+            "exact": 0.63
+          }
+        },
+        "Nastaliq → Devanagari": {
+          "before": {
+            "CER": 0.315,
+            "CER loose": 0.292,
+            "WER": 0.5820000000000001,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.155,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.026000000000000002,
+            "CER loose": 0.021,
+            "WER": 0.087,
+            "exact": 0.33
+          }
+        },
+        "Nastaliq → Roman": {
+          "before": {
+            "CER": 0.299,
+            "CER loose": 0.159,
+            "WER": 0.7809999999999999,
+            "exact": 0.0,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.032,
+            "CER loose": 0.023,
+            "WER": 0.106,
+            "exact": 0.255
+          }
+        },
+        "Roman → Devanagari": {
+          "before": {
+            "CER": 0.078,
+            "CER loose": 0.057,
+            "WER": 0.21899999999999997,
+            "exact": 0.035,
+            "no answer": 0.0,
+            "wrong script": 0.0,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.003,
+            "CER loose": 0.003,
+            "WER": 0.012,
+            "exact": 0.845
+          }
+        },
+        "Roman → Nastaliq": {
+          "before": {
+            "CER": 0.237,
+            "CER loose": 0.23199999999999998,
+            "WER": 0.42100000000000004,
+            "exact": 0.01,
+            "no answer": 0.0,
+            "wrong script": 0.03,
+            "n": 200.0
+          },
+          "after": {
+            "CER": 0.011000000000000001,
+            "CER loose": 0.011000000000000001,
+            "WER": 0.04,
+            "exact": 0.595
+          }
+        },
+        "all directions": {
+          "before": {
+            "CER": 0.235,
+            "CER loose": 0.17600000000000002,
+            "WER": 0.509,
+            "exact": 0.009000000000000001,
+            "no answer": 0.0,
+            "wrong script": 0.046,
+            "n": 1200.0
+          },
+          "after": {
+            "CER": 0.015,
+            "CER loose": 0.012,
+            "WER": 0.051,
+            "exact": 0.5479999999999999
+          }
+        }
+      },
+      "phenomena": {
+        "Devanagari": {
+          "nukta (ज़ ख़ क़ फ़ ग़)": {
+            "before": 0.11,
+            "after": 0.867
+          },
+          "aspirates (ख घ थ ध फ भ …)": {
+            "before": 0.43200000000000005,
+            "after": 0.9109999999999999
+          },
+          "nasalization (ँ ं)": {
+            "before": 0.513,
+            "after": 0.941
+          },
+          "conjuncts (्)": {
+            "before": 0.297,
+            "after": 0.841
+          },
+          "izafat (-ए- / -ओ-)": {
+            "before": 0.055999999999999994,
+            "after": 0.7040000000000001
+          }
+        },
+        "Roman": {
+          "long vowels (ā ī ū)": {
+            "before": 0.031,
+            "after": 0.9209999999999999
+          },
+          "nasalization (ñ)": {
+            "before": 0.004,
+            "after": 0.919
+          },
+          "aspirates (kh gh th dh ph bh …)": {
+            "before": 0.258,
+            "after": 0.907
+          },
+          "retroflex (T D R Ḍ Ṛ)": {
+            "before": 0.006999999999999999,
+            "after": 0.828
+          },
+          "Perso-Arabic sounds (ḳh ġ q z f)": {
+            "before": 0.125,
+            "after": 0.83
+          },
+          "izafat (-e- / -o-)": {
+            "before": 0.043,
+            "after": 0.71
+          }
+        },
+        "Nastaliq": {
+          "aspirates (ھ)": {
+            "before": 0.531,
+            "after": 0.988
+          },
+          "noon ghunna (ں)": {
+            "before": 0.54,
+            "after": 0.965
+          },
+          "hamza / izafat (ء ئ ۂ ؤ)": {
+            "before": 0.322,
+            "after": 0.8220000000000001
+          },
+          "spelling choice (ث ذ ص ض ط ظ ع ح)": {
+            "before": 0.33399999999999996,
+            "after": 0.87
+          },
+          "bari ye (ے)": {
+            "before": 0.635,
+            "after": 0.94
+          }
+        }
+      },
+      "form": {
+        "radif_kept": {
+          "before": 0.556,
+          "after": 0.9790000000000001
+        },
+        "qafiya_kept": {
+          "before": 0.29600000000000004,
+          "after": 0.8809999999999999
+        }
+      }
+    }
+  },
+  "validation_curve": [
+    {
+      "examples_seen": 0,
+      "val_CER": 0.235,
+      "val_exact": 0.0,
+      "from Devanagari": 0.243,
+      "from Nastaliq": 0.276,
+      "from Roman": 0.18100000000000002
+    },
+    {
+      "examples_seen": 1248,
+      "val_CER": 0.051,
+      "val_exact": 0.2,
+      "from Devanagari": 0.033,
+      "from Nastaliq": 0.095,
+      "from Roman": 0.022000000000000002
+    },
+    {
+      "examples_seen": 2496,
+      "val_CER": 0.033,
+      "val_exact": 0.3,
+      "from Devanagari": 0.022000000000000002,
+      "from Nastaliq": 0.061,
+      "from Roman": 0.015
+    },
+    {
+      "examples_seen": 3744,
+      "val_CER": 0.027000000000000003,
+      "val_exact": 0.41100000000000003,
+      "from Devanagari": 0.017,
+      "from Nastaliq": 0.049,
+      "from Roman": 0.013000000000000001
+    },
+    {
+      "examples_seen": 4992,
+      "val_CER": 0.026000000000000002,
+      "val_exact": 0.389,
+      "from Devanagari": 0.017,
+      "from Nastaliq": 0.047,
+      "from Roman": 0.011000000000000001
+    },
+    {
+      "examples_seen": 6240,
+      "val_CER": 0.018000000000000002,
+      "val_exact": 0.511,
+      "from Devanagari": 0.013000000000000001,
+      "from Nastaliq": 0.032,
+      "from Roman": 0.008
+    },
+    {
+      "examples_seen": 7488,
+      "val_CER": 0.018000000000000002,
+      "val_exact": 0.522,
+      "from Devanagari": 0.013000000000000001,
+      "from Nastaliq": 0.034,
+      "from Roman": 0.006999999999999999
+    },
+    {
+      "examples_seen": 8736,
+      "val_CER": 0.018000000000000002,
+      "val_exact": 0.5329999999999999,
+      "from Devanagari": 0.01,
+      "from Nastaliq": 0.035,
+      "from Roman": 0.009000000000000001
+    },
+    {
+      "examples_seen": 9984,
+      "val_CER": 0.018000000000000002,
+      "val_exact": 0.5329999999999999,
+      "from Devanagari": 0.01,
+      "from Nastaliq": 0.034,
+      "from Roman": 0.009000000000000001
+    },
+    {
+      "examples_seen": 10000,
+      "val_CER": 0.018000000000000002,
+      "val_exact": 0.5329999999999999,
+      "from Devanagari": 0.01,
+      "from Nastaliq": 0.034,
+      "from Roman": 0.009000000000000001
+    }
+  ],
+  "timing_minutes": {
+    "corpus": 0.0,
+    "datasets": 0.0,
+    "load model": 0.2,
+    "preflight": 0.3,
+    "baseline eval": 20.7,
+    "training": 43.2,
+    "tuned eval": 23.4
+  },
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "size": "medium",
+  "preset": {
+    "n_train": 10000,
+    "eval_poems": 100,
+    "epochs": 1,
+    "probe_poems": 15
+  },
+  "model_key": "qwen2.5-14b",
+  "run": "qwen2.5-14b-medium"
+}

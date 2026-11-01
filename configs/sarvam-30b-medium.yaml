@@ -1,0 +1,3 @@
+# Sarvam-30B, 10,000 examples. ~7 h on one A100 80 GB; resumes after interruptions.
+model: sarvam-30b
+size: medium

@@ -1,0 +1,3 @@
+# A cheaper general model: fits a 40 GB A100 or an L4/A10 in 4-bit. ~25 min on an A100.
+model: qwen2.5-7b
+size: small

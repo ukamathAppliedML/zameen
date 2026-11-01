@@ -1,0 +1,4 @@
+# Sarvam-30B (mixture of experts, ~2.4B active), 3,000 examples. ~2.5 h on one A100 80 GB.
+# Needs transformers 4.x: pip install -e '.[sarvam]'. Downloads a ~129 GB checkpoint.
+model: sarvam-30b
+size: small
