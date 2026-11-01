@@ -2,8 +2,7 @@
 
 **Fine-tune and evaluate language models that move Urdu poetry between Nastaliq, Devanagari and Roman, the way Rekhta writes it.**
 
-Rekhta publishes every ghazal three times: in Nastaliq (Urdu script), in Devanagari and in Roman.
-Producing the second and third versions is skilled editorial work. zameen turns Rekhta's existing
+Rekhta publishes every ghazal three times: in Nastaliq (Urdu script), in Devanagari and in Roman. Zameen turns Rekhta's existing
 three-script corpus into training data, fine-tunes an open model with LoRA, and measures it before
 and after on poems, and poets, it never saw.
 
@@ -221,8 +220,7 @@ transformers 4.x, and Colab ships 5.x.
 
 ## 5. Trained models: placeholders for the adapters on Google Drive
 
-The adapters trained in Colab are not in this repository: they are binaries, and git is the wrong
-place for them. [`models/`](models/) holds a placeholder for each: a model card generated from the
+The adapters trained in Colab are not in this repository: they are binaries. [`models/`](models/) holds a placeholder for each: a model card generated from the
 run's results, and an empty `adapter/` folder to fill.
 
 | Run | Where the adapter is now | Put it here |
@@ -232,31 +230,6 @@ run's results, and an empty `adapter/` folder to fill.
 | [sarvam-30b-medium](models/sarvam-30b-medium/) | `MyDrive/ghazal_tuning/sarvam-30b-medium/adapter` | `models/sarvam-30b-medium/adapter/` |
 | [sarvam-30b-small](models/sarvam-30b-small/) | `MyDrive/ghazal_tuning/sarvam-30b-small/adapter` | `models/sarvam-30b-small/adapter/` |
 
-> **Important.** Both Qwen runs had `SAVE_TO_DRIVE` off and saved to `/content/ghazal_tuning/`,
-> which Colab wipes when a session ends. Unless you downloaded those folders, re-create the
-> recommended adapter with `zameen run -c configs/qwen2.5-14b-medium.yaml` (about 1.5 hours on an
-> A100 80 GB; same seed and splits, so the numbers should match `results/` closely). The two Sarvam
-> adapters are on Drive.
-
-**To fill a placeholder:** download the `adapter` folder from Drive (`adapter_config.json`,
-`adapter_model.safetensors`, tokenizer files) and copy its files into `models/<run>/adapter/`.
-Then check it reproduces the published numbers:
-
-```bash
-zameen eval -c configs/sarvam-30b-medium.yaml --adapter models/sarvam-30b-medium/adapter
-```
-
-An empty placeholder gives a clear error rather than a confusing one. `.gitignore` keeps adapter
-files out of git; publish them to the Hugging Face Hub and reference them by id instead:
-
-```bash
-pip install -e ".[hub]" && huggingface-cli login
-python scripts/push_to_hub.py models/qwen2.5-14b-medium udaykamath/zameen-qwen2.5-14b-medium
-python scripts/model_card.py results/qwen2.5-14b-medium --hf-repo udaykamath/zameen-qwen2.5-14b-medium
-```
-
-then fill `hf_repo` in [`models/registry.yaml`](models/registry.yaml). Every `--adapter` option
-accepts a Hub id as well as a folder.
 
 **Using an adapter:**
 
